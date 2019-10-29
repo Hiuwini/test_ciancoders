@@ -31,7 +31,7 @@
             @endif
 
             <li class="nav-item">
-                <a class="nav-item-hold {{ request()->is('querys/*') ? 'active' : '' }}" href="#">
+            <a class="nav-item-hold {{ request()->is('score/*') ? 'active' : '' }}" href="{{route('show_scores')}}">
                     <i class="nav-icon i-Folder-Search"></i>
                     <span class="nav-text">Consulta de notas</span>
                 </a>
@@ -40,7 +40,7 @@
 
             @if((\Illuminate\Support\Facades\Auth::user()->rol) < 3 )
             <li class="nav-item">
-                <a class="nav-item-hold {{ request()->is('averages/*') ? 'active' : '' }}" href="#">
+                <a class="nav-item-hold {{ request()->is('averages/*') ? 'active' : '' }}" href="{{route('averages')}}">
                     <i class="nav-icon i-Calculator-3"></i>
                     <span class="nav-text">Reporte de promedios</span>
                 </a>
@@ -91,12 +91,6 @@
                 <a class="{{ Route::currentRouteName()=='assignments' ? 'open' : '' }}" href="{{route('assignments.index')}}">
                     <i class="nav-icon i-Book"></i>
                     <span class="item-name">Asignaturas</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='admins' ? 'open' : '' }}" href="#admins">
-                    <i class="nav-icon i-Engineering"></i>
-                    <span class="item-name">Administradores</span>
                 </a>
             </li>
             

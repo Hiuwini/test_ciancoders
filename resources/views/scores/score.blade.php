@@ -40,12 +40,13 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $a->firstname}}</td>
                                         <td>{{ $a->lastname }}</td>
-                                        <td><input type="number" class="form-control form-control-rounded unity_1" id="s_{{$a->id}}" value=""></td>
-                                        <td><input type="number" class="form-control form-control-rounded unity_2" id="s_{{$a->id}}" value=""></td>
-                                        <td><input type="number" class="form-control form-control-rounded unity_3" id="s_{{$a->id}}" value=""></td>
-                                        <td><input type="number" class="form-control form-control-rounded unity_4" id="s_{{$a->id}}" value=""></td>
+                                        <td><input type="number" class="form-control form-control-rounded unity_1" id="s_{{$u1[$key]->id}}" value="{{$u1[$key]->score}}"></td>
+                                        <td><input type="number" class="form-control form-control-rounded unity_2" id="s_{{$u2[$key]->id}}" value="{{$u2[$key]->score}}"></td>
+                                        <td><input type="number" class="form-control form-control-rounded unity_3" id="s_{{$u3[$key]->id}}" value="{{$u3[$key]->score}}"></td>
+                                        <td><input type="number" class="form-control form-control-rounded unity_4" id="s_{{$u4[$key]->id}}" value="{{$u4[$key]->score}}"></td>
                                     </tr>
                                     @endforeach
+                                    
                                 </tbody>
                             </table>
                             <div class="col-md-12">
@@ -80,7 +81,7 @@ $(document).ready(function() {
             var id = value.id;
             id = id.replace('s_','');
             var score = (value.value == '') ? 0: value.value;
-            var temp = {'assignment_id': id, 'score': score};
+            var temp = {'score_id': id, 'score': score};
             unit1.push(temp);
         });
 
@@ -88,7 +89,7 @@ $(document).ready(function() {
             var id = value.id;
             id = id.replace('s_','');
             var score = (value.value == '') ? 0: value.value;
-            var temp = {'assignment_id': id, 'score': score};
+            var temp = {'score_id': id, 'score': score};
             unit2.push(temp);
         });
 
@@ -96,7 +97,7 @@ $(document).ready(function() {
             var id = value.id;
             id = id.replace('s_','');
             var score = (value.value == '') ? 0: value.value;
-            var temp = {'assignment_id': id, 'score': score};
+            var temp = {'score_id': id, 'score': score};
             unit3.push(temp);
         });
 
@@ -104,7 +105,7 @@ $(document).ready(function() {
             var id = value.id;
             id = id.replace('s_','');
             var score = (value.value == '') ? 0: value.value;
-            var temp = {'assignment_id': id, 'score': score};
+            var temp = {'score_id': id, 'score': score};
             unit4.push(temp);
         });
 

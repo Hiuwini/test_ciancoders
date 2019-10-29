@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Assignment;
 use App\Course;
 use App\Student;
+use App\Score;
 use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
@@ -71,6 +72,14 @@ class AssignmentController extends Controller
             $assign->course_id = $course_id;
             $assign->student_id = $ids[$i];
             $assign->save();
+
+            for($j = 0; $j <= 3; $j++){
+                $score = new Score;
+                $score->assignment_id = $assign->id;
+                $score->score = 0;
+                $score->unity = $j+1;
+                $score->save();
+            }
         }
 
         return "Ready!";

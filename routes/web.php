@@ -46,5 +46,12 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::get('/scores','ScoreController@index')->name('scores.index');
     Route::get('/scores/{course}','ScoreController@score');
+    
+    Route::get('/score','ScoreController@show')->name('show_scores');
+    Route::get('/score/detail/{course}','ScoreController@show_detail');
+
+    Route::get('/score/averages','ScoreController@course')->name('averages');
+    Route::get('/score/averages/{course}','ScoreController@averages');
+    
     Route::get('/score/{u1}/{u2}/{u3}/{u4}','ScoreController@store');
     Route::delete('/score/{id}/{course}','ScoreController@destroy');
